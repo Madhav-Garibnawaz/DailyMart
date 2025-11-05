@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Register</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FontAwesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(120deg, #f5fbe8, #fff3d9);
+      font-family: "Poppins", sans-serif;
+    }
+    .auth-box {
+      max-width: 450px;
+      width: 100%;
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2d6a4f;
+      margin-bottom: 15px;
+    }
+    .logo span {
+      color: #f4a261;
+    }
+    .nav-pills .nav-link.active {
+      background-color: #2d6a4f !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-box text-center">
+    <!-- Logo / Heading -->
+    <div class="logo">F<span>oo</span>dy</div>
+    <p class="mb-4">Welcome back to fresh organic goodness!</p>
+
+    <!-- Pills navs -->
+    <ul class="nav nav-pills nav-justified mb-3" id="authTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="tab-login" data-bs-toggle="pill" data-bs-target="#pills-login"
+          type="button" role="tab" aria-controls="pills-login" aria-selected="true">Sign In</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="tab-register" data-bs-toggle="pill" data-bs-target="#pills-register"
+          type="button" role="tab" aria-controls="pills-register" aria-selected="false">Sign Up</button>
+      </li>
+    </ul>
+    <!-- Pills navs -->
+
+    <!-- Pills content -->
+    <div class="tab-content">
+      <!-- Login -->
+      <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+        <form>
+          <div class="form-outline mb-4">
+            <input type="email" id="loginName" class="form-control" required />
+            <label class="form-label" for="loginName">Email or username</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="password" id="loginPassword" class="form-control" required />
+            <label class="form-label" for="loginPassword">Password</label>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-md-6 d-flex justify-content-center">
+              <div class="form-check mb-3 mb-md-0">
+                <input class="form-check-input" type="checkbox" id="loginCheck" checked />
+                <label class="form-check-label" for="loginCheck"> Remember me </label>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center">
+              <a href="#!">Forgot password?</a>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success btn-block mb-4">Sign In</button>
+
+          <div class="text-center">
+            <p>Not a member? 
+              <a href="#" onclick="switchTab('tab-register')">Sign up here</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Register -->
+      <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+        <form>
+          <div class="form-outline mb-4">
+            <input type="text" id="registerName" class="form-control" required />
+            <label class="form-label" for="registerName">Full Name</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="email" id="registerEmail" class="form-control" required />
+            <label class="form-label" for="registerEmail">Email</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="password" id="registerPassword" class="form-control" required />
+            <label class="form-label" for="registerPassword">Password</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input type="password" id="registerRepeatPassword" class="form-control" required />
+            <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+          </div>
+
+          <div class="form-check d-flex justify-content-center mb-4">
+            <input class="form-check-input me-2" type="checkbox" id="registerCheck" required />
+            <label class="form-check-label" for="registerCheck">
+              I agree to the <a href="#">Terms</a>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-success btn-block mb-3">Create Account</button>
+
+          <div class="text-center">
+            <p>Already have an account? 
+              <a href="#" onclick="switchTab('tab-login')">Sign in here</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Pills content -->
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script to switch tabs -->
+  <script>
+    function switchTab(tabId) {
+      let triggerEl = document.getElementById(tabId);
+      let tab = new bootstrap.Tab(triggerEl);
+      tab.show();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?php
+    include("nav.php");
+?>
+<?php
+    include("carousel.php");
+?>
+<?php
+    include("footer.php");
+?>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popup Demo</title>
+  
+  <!-- Bootstrap CSS for Modal -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- SweetAlert2 -->
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  
+  <!-- Toastr -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+  
+  <!-- iziToast -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" rel="stylesheet">
+  
+  <!-- Notyf -->
+  <link href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" rel="stylesheet">
+  
+  <style>
+    body { font-family: Arial, sans-serif; padding: 30px; background: #f5f5f5; }
+    h1 { text-align: center; margin-bottom: 30px; }
+    .btn-group { display: flex; flex-direction: column; gap: 15px; max-width: 300px; margin: auto; }
+  </style>
+</head>
+<body>
+
+<h1>Popup Demo</h1>
+
+<div class="btn-group">
+  <button id="sweetAlertBtn" class="btn btn-success">SweetAlert2</button>
+  <button id="toastrBtn" class="btn btn-primary">Toastr</button>
+  <button id="iziToastBtn" class="btn btn-warning">iziToast</button>
+  <button id="notyfBtn" class="btn btn-info">Notyf</button>
+  <button id="bootstrapModalBtn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Bootstrap Modal</button>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bootstrap Modal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        This is a Bootstrap modal popup.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Toastr -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<!-- iziToast -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+
+<!-- Notyf -->
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+<script>
+  // SweetAlert2
+  document.getElementById('sweetAlertBtn').addEventListener('click', function() {
+    Swal.fire({
+      title: 'SweetAlert2!',
+      text: 'This is a SweetAlert2 popup.',
+      icon: 'success',
+      confirmButtonText: 'Cool'
+    });
+  });
+
+  // Toastr
+  document.getElementById('toastrBtn').addEventListener('click', function() {
+    toastr.success('This is a Toastr notification!', 'Success');
+  });
+
+  // iziToast
+  document.getElementById('iziToastBtn').addEventListener('click', function() {
+    iziToast.success({
+      title: 'Success',
+      message: 'This is an iziToast notification!',
+      position: 'topRight'
+    });
+  });
+
+  // Notyf
+  document.getElementById('notyfBtn').addEventListener('click', function() {
+    const notyf = new Notyf({ duration: 2000, position: {x:'right', y:'top'} });
+    notyf.success('This is a Notyf notification!');
+  });
+
+  // Bootstrap Modal is handled by data-bs-toggle and data-bs-target
+</script>
+
+</body>
+</html>
